@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Register</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color:red">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="/sign" method="POST">
+        <label for="first_name">First name</label><br>
+        <input type="text" name="first_name"><br><br>
+        <label for="last_name">Last name</label><br>
+        <input type="text" name="last_name"><br><br>
+        <label for="email">Email</label><br>
+        <input type="text" name="email"><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password"><br><br>
+        <label for="confirm_password">Confirm password</label><br>
+        <input type="password" name="confirm_password">
+        <input type="submit" value="Register">
+    </form>
+
+
+
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+        <label for="email">Email</label><br>
+        <input type="text" name="email"><br><br>
+        <label for="password">Password</label><br>
+        <input type="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+
+</html>

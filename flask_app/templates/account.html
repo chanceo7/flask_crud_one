@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="/dashboard"> dashboard </a>
+    <a href="/add">Add Magazin</a>
+    <button><a href="/logout">Logout</a></button>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color:red">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Update User</h1>
+
+    <form action="/update"  method="POST">
+        <p>Fisrt Name:</p>
+        <input type="text" value="{{session['first_name']}}" name="first_name" >
+        <p>last Name:</p>
+        <input type="text" value="{{session['last_name']}}" name="last_name">
+        <p>Email</p>
+        <input type="text" value="{{session['email']}}" name="email">
+        <br>
+        <br>
+        <input type="submit" value="Update">
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+
+     <h1>User's Magazine</h1>
+
+     {%for data in datas%}
+       <h3>{{data.name}} <a href="/delete/{{data.id}}">delete</a></h3>
+     {%endfor%}
+</body>
+</html>
